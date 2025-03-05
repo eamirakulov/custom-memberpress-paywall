@@ -1,4 +1,4 @@
-# Custom MemberPress Paywall Plugin
+# Simple Custom MemberPress Paywall Plugin
 
 🚀 **Custom MemberPress Paywall** is a WordPress plugin that allows to:
 

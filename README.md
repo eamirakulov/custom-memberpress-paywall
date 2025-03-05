@@ -22,7 +22,7 @@
 
 1. **Download & Extract the Plugin:**
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/custom-memberpress-paywall.git
+   git clone https://github.com/eamirakulov/custom-memberpress-paywall.git
    ```
 2. **Move the plugin folder to WordPress plugins directory:**
    ```sh
@@ -57,7 +57,7 @@
 ### Modify & Extend the Plugin:
 - Clone the repository:
   ```sh
-  git clone https://github.com/YOUR_GITHUB_USERNAME/custom-memberpress-paywall.git
+  git clone https://github.com/eamirakulov/custom-memberpress-paywall.git
   ```
 - Edit the plugin files (`custom-memberpress-paywall.php`) as needed.
 - Push changes:

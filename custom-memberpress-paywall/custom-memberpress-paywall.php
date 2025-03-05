@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom MemberPress Paywall
  * Description: Overrides MemberPress paywall to allow X free views and bypass for specified Rule IDs (X and Rule IDs are editable in settings).
- * Version: 1.0
+ * Version: 1.1
  * Author: Emil Amirakulov
  * Author URI: https://www.upwork.com/freelancers/~01934ce3183276c713
  * License: GPL2
@@ -47,8 +47,23 @@ function custom_mepr_paywall_settings_page() {
 // Register settings fields
 add_action('admin_init', 'custom_mepr_paywall_register_settings');
 function custom_mepr_paywall_register_settings() {
-    register_setting('custom_mepr_paywall_settings', CUSTOM_MEPR_PAYWALL_VIEWS_OPTION);
-    register_setting('custom_mepr_paywall_settings', CUSTOM_MEPR_PAYWALL_RULE_IDS_OPTION);
+    register_setting('custom_mepr_paywall_settings', CUSTOM_MEPR_PAYWALL_VIEWS_OPTION, [
+        'sanitize_callback' => 'intval' // Ensures only integers are saved
+    ]);
+    
+    register_setting('custom_mepr_paywall_settings', CUSTOM_MEPR_PAYWALL_RULE_IDS_OPTION, [
+        'sanitize_callback' => 'custom_mepr_sanitize_rule_ids' // Custom function for sanitizing Rule IDs
+    ]);
+    
+    // Sanitization function for Rule IDs (allows numbers & commas)
+    function custom_mepr_sanitize_rule_ids($input) {
+        return preg_replace('/[^0-9,]/', '', $input); // Removes anything that's not a number or comma
+    }
+
+    // Sanitization function for Rule IDs (allows numbers & commas)
+    function custom_mepr_sanitize_rule_ids($input) {
+        return preg_replace('/[^0-9,]/', '', $input); // Removes anything that's not a number or comma
+    }
     
     add_settings_section('custom_mepr_paywall_section', 'Paywall Settings', null, 'custom-mepr-paywall');
     

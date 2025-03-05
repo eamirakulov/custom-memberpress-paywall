@@ -61,8 +61,10 @@ function custom_mepr_paywall_register_settings() {
     }
 
     // Sanitization function for Rule IDs (allows numbers & commas)
-    function custom_mepr_sanitize_rule_ids($input) {
-        return preg_replace('/[^0-9,]/', '', $input); // Removes anything that's not a number or comma
+    if (!function_exists('custom_mepr_sanitize_rule_ids')) {
+        function custom_mepr_sanitize_rule_ids($input) {
+            return preg_replace('/[^0-9,]/', '', $input);
+        }
     }
     
     add_settings_section('custom_mepr_paywall_section', 'Paywall Settings', null, 'custom-mepr-paywall');

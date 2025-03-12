@@ -1,11 +1,4 @@
 # Simple Custom MemberPress Paywall Plugin
-
-🚀 **Custom MemberPress Paywall** is a WordPress plugin that allows to:
-
-- **Override MemberPress Paywall logic** without modifying core plugin files.
-- **Set the number of free views** before the paywall activates.
-- **Whitelist multiple MemberPress Rule IDs** to bypass the paywall.
-
 ---
 
 ## 📌 Features
